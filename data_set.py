@@ -8,6 +8,7 @@ class DataSet(object):
         self.data = []
         self.continue_attributes = [] # Indices de los atributos continuos
         self.hot_vector = [] # Indices del comienzo y final de los hot vectors
+        self.cant_best_attributes = 2
 
     # Carga los datos de iris o covtype (dependiendo de la eleccion hecha por el usuario)
     # a una lista, donde cada elemento de la lista es una instancia, representada como 
@@ -30,7 +31,7 @@ class DataSet(object):
             self.continue_attributes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
             self.hot_vector = [10, 13, 14, 53]
             file_name = 'covtype.data'
-            number_of_lines = 581012
+            number_of_lines = 1000
             percentage = 0.2
             number_of_lines_test = math.floor(number_of_lines * percentage)
 
@@ -61,28 +62,28 @@ class DataSet(object):
                             if (data[instance][it] == '1'):
                                 if (cant_values > 0):
                                     if (it <= ((att + cant_values) - 1)):
-                                        instance_aux.append('0')
+                                        instance_aux.append(0)
                                     elif (it <= ((att + (cant_values * 2) - 1))):
-                                        instance_aux.append('1')
+                                        instance_aux.append(1)
                                     elif (it <= (att + ((cant_values * 3) - 1))):
-                                        instance_aux.append('2')
+                                        instance_aux.append(2)
                                     else:
-                                        instance_aux.append('3')
+                                        instance_aux.append(3)
                                 else:
                                     # Aquí el hot_vector tiene dos o tres atributos 
                                     # Nota: si tiene uno sería un atributo discreto
                                     if (cant_attributes == 2):
                                         if (it == att):
-                                            instance_aux.append('0')
+                                            instance_aux.append(0)
                                         else:
-                                            instance_aux.append('1')
+                                            instance_aux.append(1)
                                     else:
                                         if (it == att):
-                                            instance_aux.append('0')
+                                            instance_aux.append(0)
                                         elif (it == att + 1):
-                                            instance_aux.append('1')
+                                            instance_aux.append(1)
                                         else:
-                                            instance_aux.append('2')
+                                            instance_aux.append(2)
                             it += 1
                         att += cant_attributes
                         # Popea los dos indices entre los que se encuentra el hot vector
@@ -127,12 +128,7 @@ class DataSet(object):
         subset = []
 
         for instance in self.data:
-            # Si es un atributo continuo compara entre los dos extremos
-            if ((attr in self.continue_attributes) and 
-                ((instance[attr] > value[0] and instance[attr] <= value[1]))):
-                    subset.append(instance)
-            # sino lo compara directamente
-            elif instance[attr] == value:
+            if instance[attr] == value:
                 subset.append(instance)
 
         data_set_result.data = subset
@@ -235,4 +231,23 @@ class DataSet(object):
                 values.append(instance[att]) 
             
         return values
+
+    def generate_best_attributes(self, attributes, attributes_aux):
+        best_attributes = []
+
+        for _ in range(self.cant_best_attributes):
+            best_att = self.max_gain_attribute(attributes, attributes_aux)
+            best_attributes.append(best_att)
+            attributes_aux.pop(best_att)
+
+        return best_attributes
+
+    def replace_continue_attributes(self, attributes):
+        for instance in self.data:
+            for att in range(len(attributes)):
+                if att in self.continue_attributes:
+                    for it_att in range(len(attributes[att])):
+                            if ((attributes[att][it_att][0] < instance[att]) and (attributes[att][it_att][1] >= instance[att])):
+                                instance[att] = it_att
+
     
