@@ -32,6 +32,8 @@ data_set_test.replace_continue_attributes(attributes)
 if option_algorithm == 1:
     bayes = Bayes(data_set)
 
+    # lista de resultados por si se quiere saber la probabilidad por instancia, así como la etiqueta 
+    # con la que clasificó y la que realmente tiene
     results = []
     well_classified = 0
     for instance in data_set_test.data:
@@ -41,12 +43,6 @@ if option_algorithm == 1:
             well_classified += 1
     
     print('Clasificador Bayesiano:')
-    
-    # # Impresión de probabilidad por instancia
-    # for result in results:
-    #     print('Con una probabilidad de {}, se puede afirmar que esta instancia \nse clasifica -> {}, siendo la etiqueta de la misma -> {}'.format(result[0][1], result[0][0], result[1]))
-    #     print('\n')
-
     print('\t -> De {} instancias, {} clasificaron correctamente.'.format(len(data_set_test.data), well_classified))
 else:
     # recorta la lista de los atributos 
@@ -55,19 +51,12 @@ else:
     
     k_nn = Knn(k)
 
-    results = []
     well_classified = 0
     for instance in data_set_test.data:
-        classified = k_nn.classify(data_set, instance, attributes)
-        results.append((classified, instance[-1]))
+        # cambiar si se quiere best_attributes
+        classified = k_nn.classify(data_set, instance, best_attributes)
         if (classified == instance[-1]):
             well_classified += 1
 
     print('Clasificador K-NN con k={}:'.format(k))
-    
-    # # Impresión por instancia
-    # for result in results:
-    #     print('Esta instancia se clasifica -> {}, siendo la etiqueta de la misma -> {}'.format(result[0], result[1]))
-    #     print('\n')
-
     print('\t -> De {} instancias, {} clasificaron correctamente.'.format(len(data_set_test.data), well_classified))

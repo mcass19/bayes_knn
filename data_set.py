@@ -8,7 +8,7 @@ class DataSet(object):
         self.data = []
         self.continue_attributes = [] # Indices de los atributos continuos
         self.hot_vector = [] # Indices del comienzo y final de los hot vectors
-        self.cant_best_attributes = 2
+        self.cant_best_attributes = 2 # Cantidad de mejores atributos
 
     # Carga los datos de iris o covtype (dependiendo de la eleccion hecha por el usuario)
     # a una lista, donde cada elemento de la lista es una instancia, representada como 
@@ -31,7 +31,7 @@ class DataSet(object):
             self.continue_attributes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
             self.hot_vector = [10, 13, 14, 53]
             file_name = 'covtype.data'
-            number_of_lines = 1000
+            number_of_lines = 581012
             percentage = 0.2
             number_of_lines_test = math.floor(number_of_lines * percentage)
 
@@ -232,6 +232,7 @@ class DataSet(object):
             
         return values
 
+    # Genera una lista con los mejores atributos, así el algoritmo K-NN solo recorre estos atributos y no todos 
     def generate_best_attributes(self, attributes, attributes_aux):
         best_attributes = []
 
@@ -242,6 +243,7 @@ class DataSet(object):
 
         return best_attributes
 
+    # Reemplaza los valores del dataset por su correspondiente intervalo dentro del atributo
     def replace_continue_attributes(self, attributes):
         for instance in self.data:
             for att in range(len(attributes)):
@@ -249,5 +251,4 @@ class DataSet(object):
                     for it_att in range(len(attributes[att])):
                             if ((attributes[att][it_att][0] < instance[att]) and (attributes[att][it_att][1] >= instance[att])):
                                 instance[att] = it_att
-
     

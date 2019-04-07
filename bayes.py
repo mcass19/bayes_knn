@@ -3,6 +3,7 @@ from data_set import DataSet
 class Bayes(object):
 
     def __init__(self, data_set):
+        # valor de m para el m-estimador
         self.m = len(data_set.data)
         
         # probabilidad de cada etiqueta
@@ -13,6 +14,8 @@ class Bayes(object):
             # lista de tuplas (etiqueta, probabilidad, dataset_etiqueta)
             self.p_targets.append((target, probability, data_set_target))
 
+    # clasifica una instancia según el clasificador bayesiano sencillo, retornando la tupla
+    # (etiqueta, probabilidad) que denota la probabilidad con la que clasificó para esa etiqueta
     def simple_classifier(self, data_set, instance, attributes):
         norma = 0
         attmax = 0
@@ -20,10 +23,9 @@ class Bayes(object):
         for target in self.p_targets:
             p_attrs_target = target[1]
             data_set_target = target[2]
-            for att in range(len(instance) - 1):
-                value = instance[att]
-                
-                len_data_value = len(data_set_target.subset_of_value(att, value).data)
+
+            for att in range(len(instance) - 1):             
+                len_data_value = len(data_set_target.subset_of_value(att, instance[att]).data)
                 len_data_target = len(data_set_target.data) 
                 p_value_target = len_data_value / len_data_target
                 
@@ -32,8 +34,6 @@ class Bayes(object):
                     p_value_target = (len_data_value + (self.m * (1 / len(attributes[att])))) / (len_data_target + self.m)
 
                 p_attrs_target *= p_value_target
-
-                # print('att ' + str(att) + ' value ' + str(value) + ' probabilidad ' + str(p_attrs_target))
             
             norma += p_attrs_target
             if p_attrs_target > attmax:
