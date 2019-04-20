@@ -1,0 +1,65 @@
+Iris:
+    Tiempo de ejecución -> Despreciable
+    Bayes:
+        1 punto de corte -> De 30 instancias, 23 clasificaron correctamente.
+        2 puntos de corte -> De 30 instancias, 23 clasificaron correctamente.
+        3 puntos de corte -> De 30 instancias, 26 clasificaron correctamente.
+        4 puntos de corte -> De 30 instancias, 26 clasificaron correctamente.
+        5 puntos de corte -> De 30 instancias, 26 clasificaron correctamente.
+        6 puntos de corte -> De 30 instancias, 25 clasificaron correctamente.
+
+    K-NN:
+        k = 1:
+            1 punto de corte -> De 30 instancias, 20 clasificaron correctamente.
+            2 puntos de corte -> De 30 instancias, 24 clasificaron correctamente.
+            3 puntos de corte -> De 30 instancias, 29 clasificaron correctamente.
+            4 puntos de corte -> De 30 instancias, 28 clasificaron correctamente.
+            5 puntos de corte -> De 30 instancias, 27 clasificaron correctamente.
+            6 puntos de corte -> De 30 instancias, 24 clasificaron correctamente.
+
+        k = 3:
+            1 punto de corte -> De 30 instancias, 23 clasificaron correctamente.
+            2 puntos de corte -> De 30 instancias, 24 clasificaron correctamente.
+            3 puntos de corte -> De 30 instancias, 30 clasificaron correctamente.
+            4 puntos de corte -> De 30 instancias, 25 clasificaron correctamente.
+            5 puntos de corte -> De 30 instancias, 27 clasificaron correctamente.
+            6 puntos de corte -> De 30 instancias, 27 clasificaron correctamente.
+
+        k = 7:
+            1 punto de corte -> De 30 instancias, 20 clasificaron correctamente.
+            2 puntos de corte -> De 30 instancias, 25 clasificaron correctamente.
+            3 puntos de corte -> De 30 instancias, 27 clasificaron correctamente.
+            4 puntos de corte -> De 30 instancias, 25 clasificaron correctamente.
+            5 puntos de corte -> De 30 instancias, 27 clasificaron correctamente.
+            6 puntos de corte -> De 30 instancias, 29 clasificaron correctamente.
+
+Covtype:
+    Tiempo de ejecución -> _
+    Bayes:
+        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+
+    K-NN:
+        k = 1:
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+
+        k = 3:
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+
+        k = 7:
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
