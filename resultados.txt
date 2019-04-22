@@ -1,6 +1,6 @@
 Iris:
-    Tiempo de ejecución -> Despreciable
     Bayes:
+        Tiempo de ejecución -> Despreciable
         1 punto de corte -> De 30 instancias, 23 clasificaron correctamente.
         2 puntos de corte -> De 30 instancias, 23 clasificaron correctamente.
         3 puntos de corte -> De 30 instancias, 26 clasificaron correctamente.
@@ -9,6 +9,7 @@ Iris:
         6 puntos de corte -> De 30 instancias, 25 clasificaron correctamente.
 
     K-NN:
+        Tiempo de ejecución -> Despreciable
         k = 1:
             1 punto de corte -> De 30 instancias, 20 clasificaron correctamente.
             2 puntos de corte -> De 30 instancias, 24 clasificaron correctamente.
@@ -34,32 +35,29 @@ Iris:
             6 puntos de corte -> De 30 instancias, 29 clasificaron correctamente.
 
 Covtype:
-    Tiempo de ejecución -> _
     Bayes:
-        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-        _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+        Tiempo de ejecución -> 50 minutos
+        10 puntos de corte -> De 116202 instancias, 75007 clasificaron correctamente.
+        15 puntos de corte -> De 116202 instancias, 73601 clasificaron correctamente.
+        20 puntos de corte -> De 116202 instancias, 76712 clasificaron correctamente.
+        25 puntos de corte -> De 116202 instancias, 76200 clasificaron correctamente.
 
     K-NN:
+        Tiempo de ejecución -> 70 minutos
         k = 1:
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            10 puntos de corte -> De 116202 instancias, 68002 clasificaron correctamente.
+            15 puntos de corte -> De 116202 instancias, 66214 clasificaron correctamente.
+            20 puntos de corte -> De 116202 instancias, 69628 clasificaron correctamente.
+            25 puntos de corte -> De 116202 instancias, 69304 clasificaron correctamente.
 
         k = 3:
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            10 puntos de corte -> De 116202 instancias, 68323 clasificaron correctamente.
+            15 puntos de corte -> De 116202 instancias, 68731 clasificaron correctamente.
+            20 puntos de corte -> De 116202 instancias, 65300 clasificaron correctamente.
+            25 puntos de corte -> De 116202 instancias, 68792 clasificaron correctamente.
 
         k = 7:
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
-            _ puntos de corte -> De 116202 instancias, _ clasificaron correctamente.
+            10 puntos de corte -> De 116202 instancias, 69789 clasificaron correctamente.
+            15 puntos de corte -> De 116202 instancias, 66679 clasificaron correctamente.
+            20 puntos de corte -> De 116202 instancias, 69782 clasificaron correctamente.
+            25 puntos de corte -> De 116202 instancias, 67989 clasificaron correctamente.

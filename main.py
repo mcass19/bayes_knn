@@ -25,7 +25,8 @@ data_set_test = data_set.load_data_set(int(option_data_set))
 generator = Generator()
 attributes = generator.generate_attributes(data_set, int(option_cant), data_set.continue_attributes)
 
-# Cambio de valores continuos a sus correspondientes intervalos dentro de los posibles valores del atributo
+# Cambio de valores continuos a sus correspondientes intervalos 
+# dentro de los posibles de un atributo
 data_set.replace_continue_attributes(attributes)
 data_set_test.replace_continue_attributes(attributes)
 
@@ -35,6 +36,7 @@ if option_algorithm == 1:
     # lista de resultados por si se quiere saber la probabilidad por instancia, así como la etiqueta 
     # con la que clasificó y la que realmente tiene
     results = []
+    
     well_classified = 0
     for instance in data_set_test.data:
         classified = bayes.simple_classifier(data_set, instance, attributes)
@@ -45,7 +47,7 @@ if option_algorithm == 1:
     print('Clasificador Bayesiano:')
     print('\t -> De {} instancias, {} clasificaron correctamente.'.format(len(data_set_test.data), well_classified))
 else:
-    # recorta la lista de los atributos 
+    # recorta la lista de atributos 
     attributes_aux = attributes.copy()
     best_attributes = data_set.generate_best_attributes(attributes, attributes_aux)
     
@@ -53,7 +55,6 @@ else:
 
     well_classified = 0
     for instance in data_set_test.data:
-        # cambiar si se quiere best_attributes
         classified = k_nn.classify(data_set, instance, best_attributes)
         if (classified == instance[-1]):
             well_classified += 1

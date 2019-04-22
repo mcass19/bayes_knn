@@ -31,7 +31,7 @@ class DataSet(object):
             self.continue_attributes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
             self.hot_vector = [10, 13, 14, 53]
             file_name = 'covtype.data'
-            number_of_lines = 581012
+            number_of_lines = 5810
             percentage = 0.2
             number_of_lines_test = math.floor(number_of_lines * percentage)
 
@@ -232,7 +232,8 @@ class DataSet(object):
             
         return values
 
-    # Genera una lista con los mejores atributos, así el algoritmo K-NN solo recorre estos atributos y no todos 
+    # Genera una lista con los mejores atributos según la ganancia, así el algoritmo K-NN 
+    # solo recorre estos atributos y no todos 
     def generate_best_attributes(self, attributes, attributes_aux):
         best_attributes = []
 
